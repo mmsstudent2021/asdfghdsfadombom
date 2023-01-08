@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <style>
+      .editor {
+        max-width: 500px;
+        left: 0;
+        right: 0;
+        background-color: #ffffffde;
+        backdrop-filter: blur(5px) contrast(160%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="my-5" id="obj">Place Holder Text</div>
+          <div
+            class="position-fixed editor mx-auto bottom-0 border rounded p-3 my-3"
+          >
+            <div class="mb-3">
+              <label for="" class="form-label">Say Something</label>
+              <textarea
+                name=""
+                id="text"
+                cols="30"
+                rows="5"
+                class="form-control"
+              ></textarea>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="">
+                  <label for="" class="form-label">Select Font</label>
+                  <select name="" id="selectFont" class="form-select"></select>
+                </div>
+              </div>
+              <div class="col">
+                <div class="">
+                  <label for="" class="form-label">Change Color</label>
+                  <input
+                    type="color"
+                    id="color"
+                    class="form-control form-control-color w-100"
+                  />
+                </div>
+              </div>
+              <div class="col">
+                <div class="">
+                  <label for="" class="form-label">Font Size</label>
+                  <input type="range" id="fontSize" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./te.js"></script>
+  </body>
+</html>

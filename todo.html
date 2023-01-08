@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+
+    <style>
+      [type="checkbox"] {
+        accent-color: black !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-4">
+          <h1 class="my-3">Todo List App</h1>
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control form-control-lg border-dark"
+              id="inputText"
+            />
+            <button class="btn btn-lg btn-dark" id="addBtn">
+              <i class="bi bi-plus-circle me-2"></i>
+              Add List
+            </button>
+          </div>
+          
+          <ul class="list-group" id="ulList"></ul>
+        </div>
+      </div>
+    </div>
+    <script src="./todo.js"></script>
+  </body>
+</html>

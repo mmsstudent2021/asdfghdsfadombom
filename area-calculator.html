@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+            <h2 class="mt-3">Area Calculator</h2>
+
+            <div class="border my-3 p-3 rounded">
+                <div class="d-flex align-items-end">
+                    <h1 class="me-auto mb-0">
+                        Result : <span id="result"></span>
+                    </h1>
+                    <button class="btn btn-outline-primary me-2" id="store">Store</button>
+                    <button class="btn btn-outline-danger" id="clear">Clear</button>
+                </div>
+                <hr>
+                <form action="" id="calc">
+                    <div class="row ">
+                        <div class="col">
+                            <label class="form-label" for="width">Width</label>
+                            <input type="number" class="form-control" id="width" required>
+
+                        </div>
+                        <div class="col">
+                            <label class="form-label" for="breadth">Breadth</label>
+                            <input type="number" class="form-control" id="breadth" required>
+                        </div>
+                        <div class="col d-flex">
+                            <button id="calcBtn" class="btn btn-lg w-100 btn-primary mt-auto">
+                                တွက်ချက်
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+                <table class="table table-bordered mt-3">
+                    <thead>
+                    <tr>
+                        <th>Width</th>
+                        <th>Breadth</th>
+                        <th>Area</th>
+                    </tr>
+                    </thead>
+                    <tbody id="lists">
+                    <tr>
+                        <td>19 ft</td>
+                        <td>60 ft</td>
+                        <td>1100 sqft</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="app.js"></script>
+</body>
+</html>
