@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice App</title>
+    <link rel="stylesheet" href="./css/invoice.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <header
+              class="d-flex justify-content-between align-content-center my-3"
+            >
+              <h1 class="mb-0">Invoice App</h1>
+              <button class="btn btn-outline-dark">
+                <i class="bi bi-printer"></i>
+                Print
+              </button>
+            </header>
+            <div id="builder" class="border p-3 mb-3">
+              <form action="" id="addListForm">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="">
+                      <label for="" class="form-label">Product / Service</label>
+                      <select
+                        class="form-select form-select-lg"
+                        name=""
+                        id="selectService"
+                      ></select>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <label for="" class="form-label">Quantity</label>
+                    <input
+                      type="number"
+                      class="form-control form-control-lg"
+                      id="quantity"
+                      required
+                    />
+                  </div>
+                  <div class="col">
+                    <button class="btn btn-dark w-100 h-100">
+                      <i class="bi bi-plus-circle"></i>
+                      Add
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <table class="table table-hover table-bordered">
+              <thead>
+                <tr>
+                  <th class="w-50">Product / Service</th>
+                  <th class="text-end">Qty</th>
+                  <th class="text-end">Unit Price</th>
+                  <th class="text-end">Total</th>
+                </tr>
+              </thead>
+              <tbody id="rows"></tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="3" class="text-end">Sub Total</td>
+                  <td class="text-end">$ <span id="subTotal">0</span></td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="text-end">GST (5%)</td>
+                  <td class="text-end">$ <span id="gst">0</span></td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="text-end">Total</td>
+                  <td class="text-end">$ <span id="total">0</span></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/invoice.js"></script>
+  </body>
+</html>

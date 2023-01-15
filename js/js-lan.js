@@ -470,7 +470,7 @@ const form = document.querySelector("#form");
 
 // btn.addEventListener("click",showAlert);
 
-const input = document.querySelector("#input");
+// const input = document.querySelector("#input");
 // input.addEventListener("focus", (_) => console.log("Focus event"));
 // input.addEventListener("blur", (_) => console.log("Blur event"));
 // input.addEventListener("change", (_) => console.log("Change event"));
@@ -481,7 +481,7 @@ const input = document.querySelector("#input");
 //   console.log("U submmited");
 // });
 
-// window.addEventListener("load", () => console.log("window loaded"));
+// window.addEventListener("load", (event) => console.log(event));
 // console.log("hello");
 // for (let i = 0; i < 10; i++) {
 //   console.log(i, "loop");
@@ -492,13 +492,128 @@ const input = document.querySelector("#input");
 // //   console.log(event);
 // });
 
-// document.addEventListener("click", (event) => console.log(event.target));
+// document.addEventListener("click", (event) => console.log(event));
 
 // const ul = document.querySelector("ul");
 // ul.addEventListener("click", (event) => console.dir(event.target));
 
-input.addEventListener("keyup", function (event) {
-  //   console.log(event.target.value);
-  //   console.log(this.value);
-  console.log(input.value);
+// input.addEventListener("keyup", function (event) {
+//   //   console.log(event.target.value);
+//   //   console.log(this.value);
+//   console.log(input.value);
+// });
+
+// console.dir(new EventTarget());
+
+// const ul = document.querySelector("ul");
+// console.log(ul.children);
+// console.log(ul.childNodes);
+
+// console.log(document.getElementsByTagName("li"));
+// console.log(document.querySelectorAll("li"));
+
+// const btn = document.querySelector("button");
+// let count = 0;
+
+// const showAlert = () => {
+//   alert("hello ....");
+//   count++;
+//   if (count >= 3) {
+//     btn.removeEventListener("click", showAlert);
+//   }
+// };
+
+// // btn.disabled = true;
+// document.addEventListener("click", (event) => {
+//   console.log(event.target);
+// });
+
+// console.log(btn);
+
+// select => myanmar mm; china cn; korea kr; japan jp;
+
+// const sl = document.createElement("select");
+
+// const op1 = document.createElement("option");
+// const text1 = document.createTextNode("myanmar");
+// op1.value = "mm";
+// op1.append(text1);
+// sl.append(op1);
+
+// const op2 = document.createElement("option");
+// const text2 = document.createTextNode("china");
+// op2.value = "ch";
+// op2.append(text2);
+// sl.append(op2);
+
+// sl.add(new Option("myanmar", "mm"));
+// sl.add(new Option("china", "cn"));
+// sl.add(new Option("korea", "kr", undefined, true));
+// sl.add(new Option("japan", "jp"));
+
+// document.body.append(sl);
+
+// console.log(sl.value);
+
+// document.querySelector(".container").addEventListener(
+//   "click",
+//   () => {
+//     console.log("1 U click container");
+//   },
+//   true
+// );
+
+// document.querySelector(".row").addEventListener(
+//   "click",
+//   () => {
+//     console.log("2 U click row");
+//   },
+//   true
+// );
+
+// document.querySelector(".col").addEventListener(
+//   "click",
+//   (event) => {
+//     // event.stopPropagation();
+//     console.log("3 U click col");
+//   },
+//   true
+// );
+
+// document.querySelector(".btn").addEventListener(
+//   "click",
+//   () => {
+//     console.log("4 U click button");
+//   },
+//   true
+// );
+
+// document.querySelector(".btn").addEventListener("click", () => {
+//   console.log("U click");
+// });
+
+// document.querySelector(".btn").addEventListener("mouseover", () => {
+//   console.log("U mouse over");
+// });
+
+// document.querySelector(".btn").addEventListener("mouseout", () => {
+//   console.log("U mouse out");
+// });
+
+// const eventLists = ["click", "mouseover", "mouseout"];
+
+// eventLists.forEach((currentEvent) => {
+//   // console.log(currentEvent);
+//   document.querySelector(".btn").addEventListener(currentEvent, () => {
+//     console.log("hello");
+//   });
+// });
+
+const list = document.querySelectorAll("li");
+console.log(list);
+
+list.forEach((currentList) => {
+  currentList.addEventListener("click", () => {
+    console.log(currentList.innerText);
+  });
 });

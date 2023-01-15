@@ -72,9 +72,11 @@ const listCounter = () => {
 
 const btnClick = () => {
   //   console.log(inputText.value);
-  ulList.append(createLi(inputText.value));
-  inputText.value = null;
-  listCounter();
+  if (inputText.value.trim()) {
+    ulList.append(createLi(inputText.value));
+    inputText.value = null;
+    listCounter();
+  }
 };
 
 //create p with before
