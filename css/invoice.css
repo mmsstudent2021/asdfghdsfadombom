@@ -10497,5 +10497,12 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+tr .del-btn {
+  display: none;
+}
+
+tr:hover .del-btn {
+  display: inline;
+}
 
 /*# sourceMappingURL=invoice.css.map */

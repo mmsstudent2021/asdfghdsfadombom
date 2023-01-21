@@ -5,3 +5,11 @@ $font-family-sans-serif: "Montserrat", sans-serif;
 $enable-rounded: false;
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+tr .del-btn {
+  display: none;
+}
+
+tr:hover .del-btn {
+  display: inline;
+}
