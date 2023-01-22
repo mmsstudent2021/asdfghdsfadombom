@@ -16,20 +16,43 @@
               class="d-flex justify-content-between align-content-center my-3"
             >
               <h1 class="mb-0">Invoice App</h1>
-              <button
-                onclick="print()"
-                class="btn btn-outline-dark d-print-none"
-              >
+              <button id="printOpen" class="btn btn-outline-dark d-print-none">
                 <i class="bi bi-printer"></i>
                 Print
               </button>
             </header>
+
+            <div
+              class="d-none d-print-flex row justify-content-between py-3 mb-3 border-bottom"
+            >
+              <div class="col-4">
+                <h4>Invoice Info</h4>
+                <p>Invoice Number : <span id="showInvoiceNumber"></span></p>
+                <p>Invoice Date : <span id="showInvoiceDate"></span></p>
+              </div>
+              <div class="col-4">
+                <h4>Customer Info</h4>
+                <p>Customer Name : <span id="showCustomerName"></span></p>
+                <p>Customer Phone : <span id="showCustomerPhone"></span></p>
+                <p class="mb-0">
+                  Customer Address <br />
+                  <span id="showCustomerAddress"></span>
+                </p>
+              </div>
+            </div>
+
             <div id="builder" class="border p-3 mb-3 d-print-none">
               <form action="" id="addListForm">
                 <div class="row">
                   <div class="col-6">
                     <div class="">
-                      <label for="" class="form-label">Product / Service</label>
+                      <label for="" class="form-label">
+                        Product / Service
+                        <span class="badge bg-dark" id="addServiceModalOpen">
+                          <i class="bi bi-plus"></i>
+                          <span class="user-select-none">new Service</span>
+                        </span>
+                      </label>
                       <select
                         class="form-select form-select-lg"
                         name=""
@@ -84,8 +107,129 @@
           </div>
         </div>
       </div>
-    </div>
 
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="addServiceModal"
+        tabindex="-1"
+        aria-labelledby="addServiceModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="addServiceModalLabel">
+                Modal title
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form action="" id="addServiceForm">
+                <div class="mb-3">
+                  <label for="" class="form-label">New Service Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="new_service_name"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="" class="form-label">New Service Price</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="new_service_price"
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="submit"
+                form="addServiceForm"
+                class="btn btn-primary"
+              >
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="printInfoOffcanvas"
+        aria-labelledby="printInfoOffcanvasLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="printInfoOffcanvasLabel">
+            Invoice Information
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <form action="" id="invoiceInfoForm">
+            <div class="mb-3">
+              <label for="" class="form-label">Invoice Number</label>
+              <input type="text" class="form-control" name="invoice_number" />
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Invoice Date</label>
+              <input type="date" class="form-control" name="invoice_date" />
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Customer Name</label>
+              <input type="text" class="form-control" name="customer_name" />
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Customer Contact</label>
+              <input type="text" class="form-control" name="customer_contact" />
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Customer Address</label>
+              <textarea
+                type="text"
+                class="form-control"
+                name="customer_address"
+              ></textarea>
+            </div>
+            <div class="form-check mb-3">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+                required
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                All Correct
+              </label>
+            </div>
+            <button class="btn btn-lg btn-dark w-100">Print Invoice</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/invoice.js"></script>
   </body>
 </html>

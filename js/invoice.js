@@ -30,6 +30,7 @@ const products = [
 //selector
 const app = document.querySelector("#app");
 const table = document.querySelector("#table");
+const printOpen = document.querySelector("#printOpen");
 const builder = document.querySelector("#builder");
 const addListForm = document.querySelector("#addListForm");
 const selectService = document.querySelector("#selectService");
@@ -38,6 +39,13 @@ const rows = document.querySelector("#rows");
 const subTotal = document.querySelector("#subTotal");
 const gst = document.querySelector("#gst");
 const total = document.querySelector("#total");
+const addServiceForm = document.querySelector("#addServiceForm");
+const addServiceModalOpen = document.querySelector("#addServiceModalOpen");
+const addServiceModal = new bootstrap.Modal("#addServiceModal");
+const invoiceInfoForm = document.querySelector("#invoiceInfoForm");
+const printInfoOffcanvas = new bootstrap.Offcanvas("#printInfoOffcanvas");
+
+// console.log(printInfoOffcanvas);
 
 // function
 const addNewList = (event) => {
@@ -64,7 +72,6 @@ const addNewList = (event) => {
 
     rq.innerText = parseFloat(rq.innerText) + quantity.valueAsNumber;
     rt.innerText = rq.innerText * currentProduct.price;
-
   } else {
     rows.append(createRow(currentProduct, quantity.valueAsNumber));
   }
@@ -111,11 +118,18 @@ const calculateTotal = () => {
   gst.innerText = calculateGst;
   total.innerText = calculateFinalTotal;
 
-  if(rows.children.length){
-    table.classList.remove("d-none")
-  }else{
-    table.classList.add("d-none")
+  if (rows.children.length) {
+    table.classList.remove("d-none");
+  } else {
+    table.classList.add("d-none");
   }
+};
+
+const getRandomId = (min = 0, max = 500000) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  const num = Math.floor(Math.random() * (max - min + 1)) + min;
+  return num.toString().padStart(6, "0");
 };
 
 // process
@@ -139,4 +153,69 @@ app.addEventListener("click", (event) => {
       calculateTotal();
     }
   }
+});
+
+addServiceModalOpen.addEventListener("dblclick", () => {
+  addServiceModal.show();
+});
+
+addServiceForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log(event.target);
+  const formData = new FormData(event.target);
+  console.log(
+    formData.get("new_service_name"),
+    formData.get("new_service_price")
+  );
+
+  // arr el add
+
+  const newProduct = {
+    id: Date.now(),
+    title: formData.get("new_service_name"),
+    price: parseFloat(formData.get("new_service_price")),
+  };
+
+  products.push(newProduct);
+
+  console.log(products);
+
+  // dom el add
+  selectService.add(new Option(newProduct.title, newProduct.id));
+
+  event.target.reset();
+
+  addServiceModal.hide();
+});
+
+printOpen.addEventListener("click", () => {
+  document.querySelector("[name='invoice_number']").value = getRandomId();
+  document.querySelector("[name='invoice_date']").valueAsDate = new Date();
+  printInfoOffcanvas.show();
+});
+
+invoiceInfoForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+
+  document.querySelector("#showInvoiceNumber").innerText =
+    formData.get("invoice_number");
+
+  document.querySelector("#showInvoiceDate").innerText =
+    formData.get("invoice_date");
+
+  document.querySelector("#showCustomerName").innerText =
+    formData.get("customer_name");
+
+  document.querySelector("#showCustomerPhone").innerText =
+    formData.get("customer_contact");
+
+  document.querySelector("#showCustomerAddress").innerText =
+    formData.get("customer_address");
+
+  event.target.reset();
+
+  printInfoOffcanvas.hide();
+
+  print();
 });
