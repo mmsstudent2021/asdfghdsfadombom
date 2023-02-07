@@ -609,11 +609,118 @@ const form = document.querySelector("#form");
 //   });
 // });
 
-const list = document.querySelectorAll("li");
-console.log(list);
+// const list = document.querySelectorAll("li");
+// console.log(list);
 
-list.forEach((currentList) => {
-  currentList.addEventListener("click", () => {
-    console.log(currentList.innerText);
-  });
-});
+// list.forEach((currentList) => {
+//   currentList.addEventListener("click", () => {
+//     console.log(currentList.innerText);
+//   });
+// });
+
+// const text =
+//   '{ "name": "hein htet zan", "age": 28, "gender": "male", "status": false }';
+// // json to obj
+// console.log(JSON.parse(text).age);
+
+// // obj to json
+// const obj = { a: "a", b: "b", c: undefined, d: null };
+// console.log(JSON.stringify(obj));
+
+// function run() {
+//   const url = "https://dummyjson.com/products";
+
+//   btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+//   <span>Loading...</span>`;
+
+//   fetch(url)
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log(data);
+//       btn.innerText = "Reload";
+//     });
+
+// const req = new XMLHttpRequest();
+// req.open("GET", url);
+// req.send();
+// req.addEventListener("loadstart", () => {
+//   console.log("I'm progress");
+
+// });
+
+// req.addEventListener("loadend", () => {
+//   btn.innerHTML = "Reload";
+// });
+// req.addEventListener("load", (event) => {
+//   console.log(JSON.parse(event.target.responseText));
+// });
+// }
+
+// const a = () => {
+//   return {
+//     x: 5,
+//     y: 6,
+//     z: function () {
+//       return this.x + this.y;
+//     },
+//   };
+// };
+
+// console.log(a().z());
+
+// // method chaining
+// const a = {
+//   x: function () {
+//     console.log("I'm x");
+//     return this;
+//   },
+//   y: function () {
+//     console.log("I'm y");
+//     return this;
+//   },
+//   z: function () {
+//     console.log("I'm z");
+//     return this;
+//   },
+// };
+
+// console.log(a.x().y().z());
+
+// abcefg => abc => ABC => A-B-C
+
+// const st = "abcdefg";
+// console.log(st.substring(0, 3).toUpperCase().split("").join("-"));
+// const arr = [50, 100, 30];
+// // 5,10,3
+// // less then 10
+// // 5,3
+// // 8
+
+// console.log(
+//   arr
+//     .map((el) => el / 10)
+//     .filter((el) => el < 10)
+//     .reduce((pv, cv) => pv + cv, 0)
+// );
+
+const btn = document.querySelector("button");
+
+// const run = () => {
+//   navigator.geolocation.getCurrentPosition((position) => {
+//     console.log(position);
+//     console.log(position.coords.latitude, position.coords.longitude);
+//   });
+// };
+
+const num = document.querySelector("#num");
+if (localStorage.getItem("num")) {
+  num.innerText = localStorage.getItem("num");
+}
+
+const run = () => {
+  const r = parseInt(num.innerText) + 1;
+  localStorage.setItem("num", r);
+  num.innerText = r;
+};
+
+btn.addEventListener("click", run);

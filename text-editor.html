@@ -5,10 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="./css/invoice.css" />
     <style>
       .editor {
         max-width: 500px;
@@ -28,7 +25,18 @@
             class="position-fixed editor mx-auto bottom-0 border rounded p-3 my-3"
           >
             <div class="mb-3">
-              <label for="" class="form-label">Say Something</label>
+              <div class="mb-3 d-flex justify-content-between">
+                <label for="" class="form-label">Say Something</label>
+                <div class="">
+                  <button class="btn btn-outline-dark" id="talkBtn">
+                    <i class="bi bi-volume-up"></i>
+                  </button>
+
+                  <button class="btn btn-outline-dark" id="typeBtn">
+                    <i class="bi bi-mic"></i>
+                  </button>
+                </div>
+              </div>
               <textarea
                 name=""
                 id="text"
@@ -65,6 +73,6 @@
         </div>
       </div>
     </div>
-    <script src="./te.js"></script>
+    <script src="./js/te.js"></script>
   </body>
 </html>

@@ -4,6 +4,8 @@ const text = document.querySelector("#text");
 const selectFont = document.querySelector("#selectFont");
 const color = document.querySelector("#color");
 const fontSize = document.querySelector("#fontSize");
+const talkBtn = document.querySelector("#talkBtn");
+const typeBtn = document.querySelector("#typeBtn");
 
 const fonts = ["Helvetica", "Tahoma", "Monospace", "Impact", "Geneva"];
 
@@ -31,6 +33,48 @@ const changeFontFamily = (event) => {
   obj.style.fontFamily = event.target.value;
 };
 
+const talk = (text) => {
+  const synth = window.speechSynthesis;
+  const voices = synth.getVoices();
+  // console.log(voices);
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.voice = voices[146];
+  utterance.rate = 0.8;
+  synth.speak(utterance);
+
+  utterance.addEventListener("start", () => {
+    talkBtn.classList.add("active");
+  });
+
+  utterance.addEventListener("end", () => {
+    talkBtn.classList.remove("active");
+  });
+};
+
+const type = () => {
+  var recognition = new webkitSpeechRecognition();
+
+  recognition.onstart = function () {
+    console.log("Speech recognition has started.");
+  };
+
+  recognition.onresult = function (event) {
+    // console.log(event.results);
+    var transcript = event.results[0][0].transcript;
+    text.value += transcript;
+  };
+
+  recognition.addEventListener("start", () => {
+    typeBtn.classList.add("active");
+  });
+
+  recognition.addEventListener("end", () => {
+    typeBtn.classList.remove("active");
+  });
+
+  recognition.start();
+};
+
 //change range html
 fontSize.min = parseFloat(window.getComputedStyle(obj).fontSize);
 fontSize.max = 100;
@@ -47,3 +91,11 @@ selectFont.addEventListener("change", changeFontFamily);
 
 // console.log(createNewOption("Myanmar", "mm"));
 // console.log(new Option("Myanmar", "mm"));
+
+talkBtn.addEventListener("click", () => {
+  talk(text.value);
+});
+
+typeBtn.addEventListener("click", () => {
+  type();
+});

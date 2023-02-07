@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>List Builder</h2>
+    <input type="text" id="textInput" />
+    <button id="add">Add</button>
+    <hr />
+    <ul id="lists"></ul>
+    <script>
+      const textInput = document.querySelector("#textInput");
+      const add = document.querySelector("#add");
+      const lists = document.querySelector("#lists");
+
+      let data = [];
+
+      const createLi = (x, y) => {
+        const li = document.createElement("li");
+        li.setAttribute("index", y);
+        const btn = document.createElement("button");
+        btn.innerText = "del";
+        li.innerText = x;
+        li.prepend(btn);
+
+        btn.addEventListener("click", (event) => {
+          console.log(data);
+          data.splice(event.target.closest("li").getAttribute("index"), 1);
+          localStorage.setItem("lists", JSON.stringify(data));
+
+          event.target.closest("li").remove();
+        });
+
+        return li;
+      };
+
+      if (localStorage.getItem("lists")) {
+        data = JSON.parse(localStorage.getItem("lists"));
+
+        data.forEach((el, index) => {
+          lists.append(createLi(el, index));
+        });
+      }
+
+      add.addEventListener("click", (event) => {
+        console.log(textInput.value);
+        lists.append(createLi(textInput.value, data.length));
+
+        // ရိုက်ထဲ့တာတွေကို သိမ်းထားချင်တာ
+        data.push(textInput.value);
+        localStorage.setItem("lists", JSON.stringify(data));
+
+        
+        textInput.value = null;
+      });
+    </script>
+  </body>
+</html>

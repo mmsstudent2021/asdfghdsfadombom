@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/invoice.css" />
+    <style>
+      .profile-photo {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      #output img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        object-position: center;
+        border: 2px solid black;
+      }
+      #uploaderUI {
+        transition: 0.5s;
+      }
+      #uploaderUI:active {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="p-5">
+      <img
+        class="profile-photo"
+        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+        alt=""
+      />
+      <input
+        type="file"
+        id="uploader"
+        accept="image/jpeg,image/png"
+        class="d-none"
+      />
+      <i
+        id="uploaderUI"
+        class="bi bi-camera border p-3 bg-secondary text-white rounded-circle"
+      ></i>
+    </div> -->
+
+    <div class="">
+      <input
+        type="file"
+        class="d-none"
+        accept="image/jpeg,image/png"
+        id="uploader"
+        multiple
+      />
+      <div class="p-5 text-center border border-dark m-5" id="uploaderUI">
+        <i class="bi bi-upload"></i> Photo Upload
+      </div>
+
+      <div
+        class="m-5 d-flex flex-wrap justify-content-between gap-4"
+        id="output"
+      ></div>
+    </div>
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="./js/ss.js"></script>
+  </body>
+</html>
